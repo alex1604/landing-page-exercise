@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<!--[if lte IE 6]><html class="preIE7 preIE8 preIE9"><![endif]-->
+<!--[if IE 7]><html class="preIE8 preIE9"><![endif]-->
+<!--[if IE 8]><html class="preIE9"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+
+<!--Task
+Read the instructions twice
+Once before you start
+Once before you submit the assignment
+
+Create an HTML file that displays a landing page according to the frames below.
+You choose your company's colors, possibly images and write the texts yourself, but you may want to support the marketing below.
+The cloud service name should be written with the font "Fascinate" https://fonts.google.com/specimen/Fascinate. However, not in continuous text.
+You choose yourself which - if any - information you request from the user.
+frames
+The company Octopus AB has launched Cloud Family cloud service to allow users to store and manage their family trees. The service is available as free as well as in different payment versions.
+Now th ey want a landing page that explains the benefits of the service, while giving visitors a clear opportunity to sign up for a free account.
+
+The marketing includes:
+Cloud Family is your easy way to keep track of relatives
+Cloud Family allows you to create your own family tree
+Give the whole family the opportunity to join and care for the family tree
+256-bit encryption makes sure your relatives are safe with Cloud Family
+Keep track of your birthday with Cloud Family
+Sort the family's first name when the new child is called
+Cloud Family binds your family in the cloud as well as on earth
+Your family's secrets are safe in our clouds
+Inspiration
+Browse through the photos at https://blog.wishpond.com/post/91777791230/8-landing-page-design-best-practices and https://blog.hubspot.com/marketing/landing-page-examples-list
+as well as review the CTA section at https://docs.google.com/document/d/1_aVT_l4LaigHjVNoZH2HP3kqzAVSOhaxN3IWy9Tc4Tw/edit#
+
+Rating Requirements
+For G
+The website should contain:
+Text that you write
+Design that you build with CSS, images and so on
+CTA button
+Must be submitted as [your-name] -family-cloud.html and the file should work independently (eg no external css file)
+For VG
+All requirements for G were met
+The webpage must be submitted no later than Monday, January 15th, at 6pm
+All parts of the website should be graphic and textual to professional requirements. * -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Family Cloud by Octopus</title>
+  <link href="https://fonts.googleapis.com/css?family=Fascinate|Nunito" rel="stylesheet">
+  <style type="text/css">
+  body{
+    font-family: 'Nunito', sans-serif;
+  }
+  header{
+    height:15em;
+    margin:none;
+  }
+  #banner{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    z-index:0;
+  }
+  #banner>img{
+    max-height:300px;
+    width:100%;
+    align-self:center;
+  }
+  #name{
+    position:relative;
+    top:-4em;
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    font-family: 'Fascinate', sans-serif;
+    color: #42f4df;
+    font-size:3em;
+    z-index:1;
+  }
+  #name > p{
+    text-align:center;
+  }
+  #main-body{
+    margin: 15% 10%;
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+    align-content:space-around;
+  }
+  #row1{
+    order:1;
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+  }
+  #row2{
+    padding-top:3em;
+    order:2;
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-start;
+  }
+  #row2 h1, #row3 h1{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    color:#3A8DCC;
+  }
+  #row3{
+    padding-top:2em;
+    order:3;
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-start;
+  }
+  #row3 form{
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+  }
+  .input-group{
+    padding:2em;
+    display:flex;
+    flex-direction:column;
+  }
+  label{
+    align-self: center;
+  }
+  input{
+    width:15em;
+    height:1.7em;
+    border-radius:5px;
+    margin: 0 1em;
+  }
+  #box1{
+    width:50%;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    border-radius:8px;
+    color:gray;
+    font-size:1.3em;
+    border:2px solid lightgray;
+    border-radius:8px;
+  }
+  #box1 ul{
+    margin-right:1.7em;
+    text-align:justify;
+  }
+  #box1 a{
+    text-decoration:none;
+    align-self:flex-end;
+    background-color:#3A8DCC;
+    color:white;
+    padding:2%;
+    border-radius:6px;
+    margin-right:3em;
+    margin-bottom:1em;
+  }
+  #box1 a:hover{
+    background-color:black;
+  }
+  #box2{
+    width:40%;
+    border-radius:8px;
+  }
+  #box2 > img{
+    border-radius:8px;
+    width:100%;
+  }
+  #row2 ul {
+    padding:1em 1em;
+    list-style: none;
+  }
+
+  #row2 ul li:before {
+    content: '✓';
+  }
+  #row1 ul {
+    list-style: none;
+  }
+
+  #row1 ul li:before {
+    content: '-';
+  }
+
+  #thumbs{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 5% !important;
+    margin-top: 0!important;
+    align-items: center;
+    height:auto;
+    text-align:center;
+  }
+  .thumb {
+    text-decoration:none;
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color:#9FF0E0;
+    color:#585858;
+    height:auto;
+    flex:0 0 30%;
+    border-radius:10px;
+    padding-bottom:1em;
+  }
+  .thumb a{
+    text-decoration:none;
+  }
+  .want-button{
+    padding:0.7em;
+    background-color:#3A8DCC;
+    color:white;
+    border-radius:6px;
+  }
+  .want-button:hover{
+    background-color:black;
+  }
+  #submit-button:hover{
+    cursor:pointer;
+    background-color:#9FF0E0;
+    color:#3A8DCC;
+  }
+  #submit-button{
+    height:3em;
+    border-radius:7px;
+    align-self: center;
+    width:20%;
+    background-color:#3A8DCC;
+    font-family: 'Nunito', sans-serif;
+    font-size:1em;
+    color:white;
+  }
+  footer{
+    width:100%;
+    height:20em;
+    background-color:#9ecbed;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+  }
+  #footer-box-1{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  #footer-box-1 a{
+    margin-top:0.3em;
+    text-decoration:none;
+    font-size:1.3em;
+    color:#003366;
+  }
+  #footer-box-1 a:hover{
+    text-decoration:underline;
+    transform:scale(1.1);
+    transition:0.5s ease;
+    color:white;
+  }
+  #sub-box-1{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #sub-box-2{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #footer-box-2{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align:center;
+  }
+  @media screen and (max-width:1270px){
+    #row1{
+      order:1;
+      display:flex;
+      flex-direction:column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    #box1{
+      order:1;
+      width:70%;
+      display:flex;
+      flex-direction:column;
+      justify-content: center;
+      padding-right: 0;
+      border-radius:8px;
+      color:gray;
+      font-size:1.3em;
+      border-radius:8px;
+    }
+    #box1 a{
+      text-decoration:none;
+      align-self:flex-end;
+      background-color:#3A8DCC;
+      color:white;
+      padding:2%;
+      border-radius:6px;
+      margin-right:2em;
+      margin-bottom:1em;
+    }
+    #box1 a:hover{
+      background-color:black;
+    }
+    #box2{
+      margin-top:4em;
+      display:flex;
+      flex-direction: row;
+      justify-content: center;
+      order:2;
+      width:100%;
+      border-radius:8px;
+    }
+    #box2 > img{
+      border-radius:8px;
+      height:20em;
+      width:auto;
+    }
+    #thumbs{
+      display:flex;
+      flex-direction: row;
+      justify-content: space-around;
+      padding-top: 10% !important;
+      padding-bottom: 5% !important;
+      margin-top: 0!important;
+      align-items: center;
+      height:auto;
+    }
+    .thumb {
+      text-decoration:none;
+      display:flex;
+      flex-direction:column;
+      justify-content: flex-start;
+      align-items: center;
+      background-color:#9FF0E0;
+      color:#585858;
+      height:auto;
+      font-size:0.8em;
+      flex:0 0 30%;
+      border-radius:10px;
+      padding-bottom:1em;
+    }
+    .thumb a{
+      text-decoration:none;
+    }
+    .want-button{
+      padding:0.7em;
+      background-color:#3A8DCC;
+      color:white;
+      border-radius:6px;
+    }
+    .want-button:hover{
+      background-color:black;
+    }
+  }
+  @media screen and (max-width:850px){
+    #box1{
+      width:100%;
+    }
+    #box2 > img{
+      border-radius:8px;
+      height:15em;
+      width:auto;
+    }
+    #thumbs{
+      height:auto;
+    }
+    .thumb {
+      height:auto;
+    }
+  }
+  @media screen and (max-width:525px){
+    #box1{
+      width:90%;
+      display:flex;
+      flex-direction:column;
+      justify-content: center;
+      padding-right: 1.5em;
+      border-radius:8px;
+      color:gray;
+      font-size:1em;
+    }
+    #banner>img{
+      max-height:300px;
+      width:100%;
+      align-self:center;
+    }
+    #name{
+      position:relative;
+      top:-4em;
+      display:flex;
+      flex-direction:row;
+      justify-content: center;
+      font-family: 'Fascinate', light;
+      color: white;
+      font-size:3em;
+      z-index:1;
+    }
+    #box2 > img{
+      border-radius:8px;
+      max-height:12em;
+      width:auto;
+    }
+    #thumbs{
+      display:flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding-top: 10% !important;
+      padding-bottom: 5% !important;
+      margin-top: 0!important;
+      align-items: center;
+      height:auto;
+
+    }
+    .thumb {
+      text-decoration:none;
+      display:flex;
+      flex-direction:column;
+      justify-content: flex-start;
+      align-items: center;
+      background-color:#9FF0E0;
+      color:#585858;
+      height:auto;
+      width:20em;
+      padding-bottom:1em;
+      margin-bottom:2em;
+    }
+    #row2 h1, #row3 h1{
+      display:flex;
+      flex-direction:row;
+      justify-content: center;
+      text-align:center;
+      color:#3A8DCC;
+    }
+    #row3{
+      padding-top:2em;
+      order:3;
+      display:flex;
+      flex-direction:column;
+      justify-content: flex-start;
+    }
+    #row3 form{
+      display:flex;
+      flex-direction:row;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <div id="banner"><img src="https://cdn.pixabay.com/photo/2017/06/04/16/32/clouds-2371482_960_720.jpg"></div>
+    <div id="name"><p>Family Cloud <br><span style="font-size:0.6em">by Octopus</span></p></div>
+  </header>
+  <main>
+    <div id="main-body">
+      <div id="row1">
+        <div id="box2">
+          <img src="https://cdn.pixabay.com/photo/2017/01/10/18/18/grandparents-1969824_960_720.jpg">
+        </div>
+        <div id="box1">
+          <ul>
+            <li> Create a <b>family tree</b> on the cloud</li>
+            <li> Bring your family closer together thanks to <em>Family Cloud</em></li>
+            <li> Keep track of family events: <b>Family Calendar</b></li>
+            <li> Store all kind of family media: albums, tags, collage... </li>
+            <li> Your family data is safe with us: <b>256-bit encryption system</b></li>
+          </ul>
+          <a href="#"><div id="read-button">Read more...</div></a>
+        </div>
+      </div>
+      <div id="row2">
+        <h1>OUR PLANS</h1>
+        <div id="thumbs">
+          <div class="thumb">
+            <h2>FREE</h2>
+            <ul>
+              <li> Create a family tree</li>
+              <li> Customise & download tree</li>
+              <li> 1 account / 10 profiles</li>
+              <li> 25Gb cloud storage (extendable)</li>
+            </ul>
+            <a href="#"><div class="want-button">I want it</div></a>
+          </div>
+          <div class="thumb">
+            <h2>PLUS</h2><span>30€/year</span>
+            <ul>
+              <li> 250Gb cloud storage</li>
+              <li> Create and send event invitation</li>
+              <li> Family events calendar</li>
+              <li> Unlimited profiles</li>
+            </ul>
+            <a href="#"><div class="want-button">I want it</div></a>
+          </div>
+          <div class="thumb">
+            <h2>PREMIUM</h2><span>50€/year</span>
+            <ul>
+              <li> 2Tb cloud storage</li>
+              <li> Interactive interface</li>
+              <li> Free unlimited video-conferences</li>
+              <li> Unlimited profiles</li>
+            </ul>
+            <a href="#"><div class="want-button">I want it</div></a>
+          </div>
+        </div>
+      </div>
+        <div id="row3">
+          <h1 id="register">CREATE A FREE ACCOUNT</h1>
+          <form role="form">
+            <div class="input-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" class="pull-right" placeholder="Enter your first name"><br>
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" placeholder="Enter your last name"><br>
+              <label for="inpEmail">Email address</label>
+              <input type="email" id="inpEmail" placeholder="Enter your email"><br>
+            </div>
+            <div class="input-group">
+              <label for="pass">Password</label>
+              <input type="password" id="pass" placeholder="Enter a password"><br>
+              <label for="pass2">Password</label>
+              <input type="password" id="pass2" placeholder="Repeat the password"><br>
+              <label for="robot">How much is 3 + 7?</label>
+              <input type="number" id="robot" placeholder="Type in the result"><br>
+            </div>
+          </form>
+          <button type="submit" id="submit-button">Create account</button>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div id="footer-box-1">
+        <div id="sub-box-1">
+          <a href="#">News</a>
+          <a href="#">Blog</a>
+          <a href="#">Press</a>
+          <a href="#">About us</a>
+        </div>
+        <div id="sub-box-2">
+          <a href="#">Legal</a>
+          <a href="#">Team</a>
+          <a href="#">Social Media</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+      <div id="footer-box-2">
+        <p>Copyright &#169; 2018 &#174;Octopus AB All Rights Reserved.<br> January 10, 2018. Gothenburg, Sweden.</p>
+      </div>
+    </footer>
+
+
+
+
+
+
+    <!--<img src="https://cdn.pixabay.com/photo/2015/06/15/15/03/family-810297_960_720.jpg">
+    <img src="https://cdn.pixabay.com/photo/2017/08/06/13/54/people-2592723_960_720.jpg">-->
+
+
+  </body>
+  </html>
